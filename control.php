@@ -1,16 +1,11 @@
 <?php
 
-include "conexion.class.php";
-
 if(!isset($_SESSION)){
-		session_start();
+	session_start();
 }
 
-
-
-
-	//if($_SERVER['REQUEST_METHOD'] == 'POST')
-	//{
+	if($_SERVER['REQUEST_METHOD'] == 'POST')
+	{
 		$a = $_POST['apellido'];
 		$n = $_POST['nombre'];
 		$apellido = ucwords(strtolower($a));
@@ -38,6 +33,5 @@ if(!isset($_SESSION)){
 		{		
 			header("Location: exito.php");
 		}
-		
 
-	//}
+	}

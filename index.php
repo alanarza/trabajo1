@@ -31,21 +31,21 @@
                   <div class="form-group">
                     <label for="apellido" class="col-lg-2 control-label">Apellido/s</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="apellido" placeholder="Apellido/s">
+                      <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="nombre" class="col-lg-2 control-label">Nombre/s</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="nombre" placeholder="Nombre/s">
+                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="dni" class="col-lg-2 control-label">D.N.I</label>
                     <div class="col-lg-10">
-                      <input type="numeric" class="form-control" id="dni" placeholder="D.N.I">
+                      <input type="numeric" class="form-control" id="dni" name="dni" placeholder="D.N.I">
                     </div>
                   </div>
    
@@ -54,13 +54,13 @@
                     <div class="col-lg-10">
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="sexo" value="masculino">
+                          <input type="radio" name="sexo" id="sexo" value="masculino">
                           Masculino
                         </label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="sexo" value="femenino">
+                          <input type="radio" name="sexo" id="sexo" value="femenino">
                           Femenino
                         </label>
                       </div>
@@ -70,7 +70,7 @@
                   <div class="form-group">
                     <label for="select" class="col-lg-2 control-label">Nacionalidad</label>
                     <div class="col-lg-10">
-                      <select class="form-control" id="nacionalidad">
+                      <select class="form-control" id="select" name="nacionalidad">
                         <option>Argentina</option>
                         <option>Chile</option>
                         <option>Peru</option>
