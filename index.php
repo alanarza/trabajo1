@@ -16,6 +16,7 @@ if(!isset($_SESSION)){
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>  
 
     <style type="text/css">
       body {

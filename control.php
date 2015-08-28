@@ -84,7 +84,7 @@ if(!isset($_SESSION)){
 		}
 	}
 
-	//verifica acciones por metodo get
+	//verifica acciones por metodo get/////////////////////////////////////////////////////
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
 		$action1 = $_GET['action'];
@@ -99,3 +99,4 @@ if(!isset($_SESSION)){
 			die();
 		}
 	}
+	
