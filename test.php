@@ -28,6 +28,8 @@
             <fieldset>
               <legend>Registro</legend>
 
+              <input id="action" type="hidden" name="action" value="insert"/>
+
               <div class="form-group">
                 <label for="apellido" class="col-lg-2 control-label">Apellido/s</label>
                 <div class="col-lg-10">

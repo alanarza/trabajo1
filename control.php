@@ -50,11 +50,6 @@ if(!isset($_SESSION)){
 			}
 
 		}
-		else
-		{
-			header("Location: index.php");
-			die();
-		}
 
 		//seccion que maneja el alta de usuarios///////////////////////////////////////////
 		if($action == 'insert')
@@ -84,7 +79,7 @@ if(!isset($_SESSION)){
 
 			if($stmt->rowCount() == 1)
 			{		
-				header("Location: exito.php");
+				header("Location: index.php");
 			}
 		}
 	}

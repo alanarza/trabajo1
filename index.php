@@ -24,14 +24,6 @@ if(!isset($_SESSION)){
       }
     </style>
 
-    <script type="text/javascript">
-
-    	$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
-
-    </script>
-
   </head>
 
   <body>
@@ -108,45 +100,17 @@ if(!isset($_SESSION)){
           <a class="navbar-brand" href="#">Registro Nacional de Personas</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-             
-          </ul>
+         
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <?php echo $_SESSION['nombre']?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-              
-              <fieldset>
-              	
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-              </fieldset>
-
-
-              	<li><a href="control.php?action=salir">Cerrar Sesion</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Agregar Registro</a></li>
+                
+                <li class="divider"></li>
+                <li><a href="control.php?action=salir">Cerrar Sesion</a></li>
 
               </ul>
             </li>
@@ -165,7 +129,97 @@ if(!isset($_SESSION)){
         <p>Bienvenido al sistema de registro nacional de identidad de personas.</p>
         <p><a class="btn btn-primary btn-lg">Ver registros</a></p>
       </div>
+    
+      <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Registrar Persona</h4>
+              </div>
+              <div class="modal-body">
+               
+
+          <form class="form-horizontal" action="control.php" method="post">
+            <fieldset>
+             
+
+              <div class="form-group">
+                <label for="apellido" class="col-lg-2 control-label">Apellido/s</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="nombre" class="col-lg-2 control-label">Nombre/s</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dni" class="col-lg-2 control-label">D.N.I</label>
+                <div class="col-lg-10">
+                  <input type="numeric" class="form-control" id="dni" name="dni" placeholder="D.N.I">
+                </div>
+              </div>
    
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Sexo</label>
+                <div class="col-lg-10">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="sexo" id="sexo" value="masculino">
+                        Masculino
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="sexo" id="sexo" value="femenino">
+                        Femenino
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="select" class="col-lg-2 control-label">Nacionalidad</label>
+                <div class="col-lg-10">
+                  <select class="form-control" id="select" name="nacionalidad">
+                    <option>Argentina</option>
+                    <option>Chile</option>
+                    <option>Peru</option>
+                    <option>Bolivia</option>
+                    <option>Paraguay</option>
+                    <option>Uruguay</option>
+                  </select>
+                  <br>
+                      
+                </div>
+              </div>
+
+              <input id="action" type="hidden" name="action" value="insert"/>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+              </fieldset>
+          </form> 
+
+            </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
     </div>
   </div>
 
