@@ -210,6 +210,38 @@ if(!isset($_SESSION)){
               </div>
 
               <div class="form-group">
+                <label for="provincia" class="col-lg-2 control-label">Provincia</label>
+                <div class="col-lg-10">
+                  <select class="form-control" id="provincia" name="provincia">
+                    <option>Buenos Aires</option>
+                    <option>Catamarca</option>
+                    <option>Chaco</option>
+                    <option>Chubut</option>
+                    <option>Córdoba</option>
+                    <option>Corrientes</option>
+                    <option>Entre Ríos</option>
+                    <option>Formosa</option>
+                    <option>Jujuy</option>
+                    <option>La Pampa</option>
+                    <option>La Rioja</option>
+                    <option>Mendoza</option>
+                    <option>Misiones</option>
+                    <option>Neuquén</option>
+                    <option>Río Negro</option>
+                    <option>Salta</option>
+                    <option>San Juan</option>
+                    <option>San Luis</option>
+                    <option>Santa Cruz</option>
+                    <option>Santa Fe</option>
+                    <option>Santiago del Estero</option>
+                    <option>Tierra del Fuego, Antártida e Isla del Atlántico Sur</option>
+                    <option>Tucumán</option>
+                  </select>
+                  <br> 
+                </div>
+              </div>     
+
+              <div class="form-group">
                 <label for="domicilio" class="col-lg-2 control-label">Domicilio</label>
                 <div class="col-lg-10">
                   <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="Domicilio">
