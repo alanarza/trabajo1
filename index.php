@@ -168,6 +168,13 @@ if(!isset($_SESSION)){
                   <input type="numeric" class="form-control" id="dni" name="dni" placeholder="D.N.I">
                 </div>
               </div>
+
+              <div class="form-group">
+                <label for="fecha" class="col-lg-2 control-label">Fecha Nacimiento</label>
+                <div class="col-lg-10">
+                  <input type="date" class="form-control" id="fecha" name="fecha">
+                </div>
+              </div>
    
               <div class="form-group">
                 <label class="col-lg-2 control-label">Sexo</label>
@@ -198,8 +205,52 @@ if(!isset($_SESSION)){
                     <option>Paraguay</option>
                     <option>Uruguay</option>
                   </select>
-                  <br>
-                      
+                  <br> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="domicilio" class="col-lg-2 control-label">Domicilio</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="Domicilio">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="fecha_exp" class="col-lg-2 control-label">Fecha expedición</label>
+                <div class="col-lg-10">
+                <input type="date" class="form-control" name="exp" id="fecha_exp" value="<?php echo date('Y-m-d'); ?>" disabled>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="fecha_ven" class="col-lg-2 control-label">Fecha vencimiento</label>
+                <div class="col-lg-10">
+                <input type="text" class="form-control" name="ven" id="fecha_ven" value="<?php echo date('Y-m-d', strtotime("+15 Years")); ?>" disabled>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Donante?</label>
+                <div class="col-lg-10">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="donante" id="donante" value="true">
+                        Si
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="donante" id="donante" value="false">
+                        No
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tramite" class="col-lg-2 control-label">Num de Tramite</label>
+                <div class="col-lg-10">
+                  <input type="numeric" class="form-control" id="tramite" name="tramite" placeholder="Numero de Tramite">
                 </div>
               </div>
 
@@ -208,7 +259,7 @@ if(!isset($_SESSION)){
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+            </div>
 
               </fieldset>
           </form> 
