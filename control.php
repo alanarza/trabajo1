@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 if(!isset($_SESSION)){
 	session_start();
 }
@@ -62,8 +65,8 @@ if(!isset($_SESSION)){
 			$nacionalidad = $_POST['nacionalidad'];
 			$provincia = 	$_POST['provincia'];
 			$domicilio = 	$_POST['domicilio'];
-			$fec_expedicion = $_POST['exp'];
-			$fec_vencimiento = $_POST['ven'];
+			$fec_expedicion = date('Y-m-d');
+			$fec_vencimiento = date('Y-m-d', strtotime("+15 Years"));
 			$donante = 		$_POST['donante'];
 			$tramite = 		$_POST['tramite'];
 

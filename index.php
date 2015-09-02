@@ -151,28 +151,28 @@ if(!isset($_SESSION)){
               <div class="form-group">
                 <label for="apellido" class="col-lg-2 control-label">Apellido/s</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s">
+                  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s" required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="nombre" class="col-lg-2 control-label">Nombre/s</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s">
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s" required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="dni" class="col-lg-2 control-label">D.N.I</label>
                 <div class="col-lg-10">
-                  <input type="numeric" class="form-control" id="dni" name="dni" placeholder="D.N.I">
+                  <input type="numeric" class="form-control" id="dni" name="dni" placeholder="D.N.I" required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="fecha" class="col-lg-2 control-label">Fecha Nacimiento</label>
                 <div class="col-lg-10">
-                  <input type="date" class="form-control" id="fecha" name="fecha">
+                  <input type="date" class="form-control" id="fecha" name="fecha" required>
                 </div>
               </div>
    
@@ -181,13 +181,13 @@ if(!isset($_SESSION)){
                 <div class="col-lg-10">
                   <div class="radio">
                     <label>
-                      <input type="radio" name="sexo" id="sexo" value="masculino">
+                      <input type="radio" name="sexo" id="sexo" value="masculino" required>
                         Masculino
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="sexo" id="sexo" value="femenino">
+                      <input type="radio" name="sexo" id="sexo" value="femenino" required>
                         Femenino
                     </label>
                   </div>
@@ -197,7 +197,7 @@ if(!isset($_SESSION)){
               <div class="form-group">
                 <label for="select" class="col-lg-2 control-label">Nacionalidad</label>
                 <div class="col-lg-10">
-                  <select class="form-control" id="select" name="nacionalidad">
+                  <select class="form-control" id="select" name="nacionalidad" required>
                     <option>Argentina</option>
                     <option>Chile</option>
                     <option>Peru</option>
@@ -212,7 +212,7 @@ if(!isset($_SESSION)){
               <div class="form-group">
                 <label for="provincia" class="col-lg-2 control-label">Provincia</label>
                 <div class="col-lg-10">
-                  <select class="form-control" id="provincia" name="provincia">
+                  <select class="form-control" id="provincia" name="provincia" required>
                     <option>Buenos Aires</option>
                     <option>Catamarca</option>
                     <option>Chaco</option>
@@ -251,13 +251,15 @@ if(!isset($_SESSION)){
               <div class="form-group">
                 <label for="fecha_exp" class="col-lg-2 control-label">Fecha expedición</label>
                 <div class="col-lg-10">
-                <input type="date" class="form-control" name="exp" id="fecha_exp" value="<?php echo date('Y-m-d'); ?>" disabled>
+                <input type="date" class="form-control" name="fec_exp" id="fecha_exp" value="<?php echo date('Y-m-d'); ?>" disabled>
+                
                 </div>
               </div>
               <div class="form-group">
                 <label for="fecha_ven" class="col-lg-2 control-label">Fecha vencimiento</label>
                 <div class="col-lg-10">
-                <input type="text" class="form-control" name="ven" id="fecha_ven" value="<?php echo date('Y-m-d', strtotime("+15 Years")); ?>" disabled>
+                <input type="date" class="form-control" name="fec_ven" id="fecha_ven" value="<?php echo date('Y-m-d', strtotime("+15 Years")); ?>" disabled>
+                
                 </div>
               </div>
 
@@ -282,7 +284,7 @@ if(!isset($_SESSION)){
               <div class="form-group">
                 <label for="tramite" class="col-lg-2 control-label">Num de Tramite</label>
                 <div class="col-lg-10">
-                  <input type="numeric" class="form-control" id="tramite" name="tramite" placeholder="Numero de Tramite">
+                  <input type="numeric" class="form-control" id="tramite" name="tramite" placeholder="Numero de Tramite" required>
                 </div>
               </div>
 
