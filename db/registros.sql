@@ -1,94 +1,87 @@
--- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Aug 31, 2015 at 04:13 PM
--- Server version: 5.5.43-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.9
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+CREATE SCHEMA IF NOT EXISTS `registros` DEFAULT CHARACTER SET latin1 ;
+USE `registros` ;
+
+-- -----------------------------------------------------
+-- Table `registros`.`imagenes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `registros`.`imagenes` (
+  `id` INT(255) NOT NULL AUTO_INCREMENT,
+  `imagen` LONGBLOB NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+-- -----------------------------------------------------
+-- Table `registros`.`nacionalidad`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `registros`.`nacionalidad` (
+  `id` INT(255) NOT NULL AUTO_INCREMENT,
+  `pais` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
---
--- Database: `registros`
---
 
--- --------------------------------------------------------
+-- -----------------------------------------------------
+-- Table `registros`.`provincia`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `registros`.`provincia` (
+  `id` INT(255) NOT NULL AUTO_INCREMENT,
+  `provincia` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
---
--- Table structure for table `imagenes`
---
 
-CREATE TABLE IF NOT EXISTS `imagenes` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `imagen` longblob NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+-- -----------------------------------------------------
+-- Table `registros`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `registros`.`usuarios` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `apellido` VARCHAR(300) NOT NULL,
+  `nombre` VARCHAR(300) NOT NULL,
+  `dni` INT(11) NOT NULL,
+  `nacimiento` VARCHAR(255) NOT NULL,
+  `sexo` VARCHAR(300) NOT NULL,
+  `nacionalidad` INT(255) NOT NULL,
+  `provincia` INT(255) NOT NULL,
+  `domicilio` VARCHAR(255) NOT NULL,
+  `user` VARCHAR(255) NULL DEFAULT NULL,
+  `pass` VARCHAR(255) NULL DEFAULT NULL,
+  `fecha_expedicion` DATE NOT NULL,
+  `fecha_vencimiento` DATE NOT NULL,
+  `donante` TINYINT(1) NOT NULL,
+  `num_tramite` INT(255) NOT NULL,
+  `imagen` INT(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_usuarios_imagenes_idx` (`imagen` ASC),
+  INDEX `fk_usuarios_nacionalidad1_idx` (`nacionalidad` ASC),
+  INDEX `fk_usuarios_provincia1_idx` (`provincia` ASC),
+  CONSTRAINT `fk_usuarios_imagenes`
+    FOREIGN KEY (`imagen`)
+    REFERENCES `registros`.`imagenes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuarios_nacionalidad1`
+    FOREIGN KEY (`nacionalidad`)
+    REFERENCES `registros`.`nacionalidad` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuarios_provincia1`
+    FOREIGN KEY (`provincia`)
+    REFERENCES `registros`.`provincia` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = latin1;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `nacionalidad`
---
-
-CREATE TABLE IF NOT EXISTS `nacionalidad` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `pais` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `provincia`
---
-
-CREATE TABLE IF NOT EXISTS `provincia` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `provincia` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usuarios`
---
-
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `apellido` varchar(300) NOT NULL,
-  `nombre` varchar(300) NOT NULL,
-  `dni` int(11) NOT NULL,
-  `nacimiento` varchar(255) NOT NULL,
-  `sexo` varchar(300) NOT NULL,
-  `nacionalidad` varchar(300) NOT NULL,
-  `provincia` varchar(255) NOT NULL,
-  `domicilio` varchar(255) NOT NULL,
-  `user` varchar(255) DEFAULT NULL,
-  `pass` varchar(255) DEFAULT NULL,
-  `fecha_expedicion` date NOT NULL,
-  `fecha_vencimiento` date NOT NULL,
-  `donante` tinyint(1) NOT NULL,
-  `num_tramite` int(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `apellido`, `nombre`, `dni`, `nacimiento`, `sexo`, `nacionalidad`, `provincia`, `domicilio`, `user`, `pass`, `fecha_expedicion`, `fecha_vencimiento`, `donante`, `num_tramite`) VALUES
-(3, 'Arza', 'Alan', 36760537, '20 ABR 1992', 'masculino', 'Argentina', 'chubut', 'Love Parry 1428', 'earza', '123123', '0000-00-00', '0000-00-00', 0, 0),
-(5, 'Alfredo', 'Pablo', 123123123, '12 OCT 1990', 'masculino', 'Argentina', 'chubut', '25 de Mayo 1203', NULL, NULL, '0000-00-00', '0000-00-00', 0, 0);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

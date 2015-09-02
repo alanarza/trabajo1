@@ -54,33 +54,47 @@ if(!isset($_SESSION)){
 		//seccion que maneja el alta de usuarios///////////////////////////////////////////
 		if($action == 'insert')
 		{
-			$a = $_POST['apellido'];
-			$n = $_POST['nombre'];
-			$apellido = ucwords(strtolower($a));
-			$nombre = ucwords(strtolower($n));
-			$dni = $_POST['dni'];
-			$sexo = $_POST['sexo'];
+			$apellido = 	$_POST['apellido'];
+			$nombre = 		$_POST['nombre'];
+			$dni = 			$_POST['dni'];
+			$fecha_nacim =	$_POST['fecha']; 
+			$sexo = 		$_POST['sexo'];
 			$nacionalidad = $_POST['nacionalidad'];
+			$provincia = 	$_POST['provincia'];
+			$domicilio = 	$_POST['domicilio'];
+			$fec_expedicion = $_POST['exp'];
+			$fec_vencimiento = $_POST['ven'];
+			$donante = 		$_POST['donante'];
+			$tramite = 		$_POST['tramite'];
+
 
 
 			$conn = new PDO('mysql:host=localhost;dbname=registros','root','udc');
 
-			$sql = "INSERT INTO usuarios (apellido, nombre, dni, sexo, nacionalidad)
-					values (:apellido, :nombre ,:dni, :sexo, :nacionalidad)";
+			$sql = "INSERT INTO usuarios (apellido, nombre, dni, nacimiento, sexo, nacionalidad, provincia, domicilio, fecha_expedicion, fecha_vencimiento, donante, num_tramite)
+					values (:apellido,:nombre , :dni, :nacimiento, :sexo, :nacionalidad, :provincia, :domicilio, :fecha_expedicion, :fecha_vencimiento, :donante, :num_tramite)";
 
 			$stmt = $conn->prepare($sql);
 
 			$stmt->bindParam(':apellido', $apellido, PDO::PARAM_STR);
 			$stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
 			$stmt->bindParam(':dni', $dni, PDO::PARAM_STR);
+			$stmt->bindParam(':nacimiento', $fecha_nacim, PDO::PARAM_STR);
 			$stmt->bindParam(':sexo', $sexo, PDO::PARAM_STR);
 			$stmt->bindParam(':nacionalidad', $nacionalidad, PDO::PARAM_STR);
+			$stmt->bindParam(':provincia', $provincia, PDO::PARAM_STR);
+			$stmt->bindParam(':domicilio', $domicilio, PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_expedicion', $fec_expedicion, PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_vencimiento', $fec_vencimiento, PDO::PARAM_STR);
+			$stmt->bindParam(':donante', $donante, PDO::PARAM_STR);
+			$stmt->bindParam(':num_tramite', $tramite, PDO::PARAM_STR);
 			$stmt->execute();
 
 			if($stmt->rowCount() == 1)
 			{		
 				header("Location: index.php");
 			}
+			
 		}
 	}
 
@@ -100,3 +114,11 @@ if(!isset($_SESSION)){
 		}
 	}
 	
+
+
+/*
+$a = $_POST['apellido'];
+			$n = $_POST['nombre'];
+			$apellido = ucwords(strtolower($a));
+			$nombre = ucwords(strtolower($n));
+*/

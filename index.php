@@ -266,13 +266,13 @@ if(!isset($_SESSION)){
                 <div class="col-lg-10">
                   <div class="radio">
                     <label>
-                      <input type="radio" name="donante" id="donante" value="true">
+                      <input type="radio" name="donante" id="donante" value="si">
                         Si
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="donante" id="donante" value="false">
+                      <input type="radio" name="donante" id="donante" value="no">
                         No
                     </label>
                   </div>
