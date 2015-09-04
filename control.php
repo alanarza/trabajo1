@@ -106,6 +106,11 @@ if(!isset($_SESSION)){
 	{
 		$action1 = $_GET['action'];
 
+		if($action == 'index')
+		{
+			require("pagina.php");
+		}
+
 		if($action1 == 'salir')
 		{
 			$_SESSION = array();
