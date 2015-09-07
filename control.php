@@ -7,6 +7,7 @@ if(!isset($_SESSION)){
 	session_start();
 }
 
+
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 	{
 		header("Location: index.php");
@@ -16,6 +17,7 @@ if(!isset($_SESSION)){
 	{
 		header("Location: index.php");
 	}
+
 
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -106,7 +108,7 @@ if(!isset($_SESSION)){
 	{
 		$action1 = $_GET['action'];
 
-		if($action == 'index')
+		if($action1 == 'index')
 		{
 			require("pagina.php");
 		}

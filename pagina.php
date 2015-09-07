@@ -29,7 +29,7 @@ if(!isset($_SESSION)){
 
   <body>
 
-    <?php if ($_SESSION['id'] == ''): ?>
+    <?php if (!isset($_SESSION['id'])): ?>
 
       <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">

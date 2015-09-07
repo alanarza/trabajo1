@@ -1,5 +1,5 @@
 <?php
 
-	header("Location: index.php?action=index");
+	header("Location: control.php?action=index");
 
 ?>
