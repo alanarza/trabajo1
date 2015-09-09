@@ -19,12 +19,12 @@ if(!isset($_SESSION)){
 	}
 
 
-
+	//verifica acciones por metodo post/////////////////////////////////////////////////////
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$action = $_POST['action'];
 
-		//seccion que maneja el login////////////////////////////////////////////////////////
+		//seccion que maneja el login/
 		if($action == 'login')
 		{
 			$user = $_POST['user'];
@@ -56,7 +56,7 @@ if(!isset($_SESSION)){
 
 		}
 
-		//seccion que maneja el alta de usuarios///////////////////////////////////////////
+		//seccion que maneja el alta de usuarios/
 		if($action == 'insert')
 		{
 			$apellido = 	$_POST['apellido'];
@@ -121,6 +121,11 @@ if(!isset($_SESSION)){
 			header("Location: index.php");
 			
 			die();
+		}
+
+		if($action1 == 'listar')
+		{
+			//action para listar todos los registros
 		}
 	}
 	
