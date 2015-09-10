@@ -19,10 +19,10 @@ if(!$apellido)
 $apellido = strtoupper($apellido);
 
 $sql =""
-        . "select emp_no as id, "
-        . "concat_ws(' ', first_name, last_name) as label, "
-        . "concat_ws(' ', first_name, last_name) as value "
-        . "from employees.employees where upper(last_name) like :apellido limit 10";
+        . "select id, "
+        . "concat_ws(' ', nombre, apellido) as label, "
+        . "concat_ws(' ', nombre, apellido) as value "
+        . "from usuarios where upper(apellido) like :apellido limit 10";
 $stmt = $pdo->prepare($sql);
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 

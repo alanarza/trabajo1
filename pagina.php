@@ -17,6 +17,7 @@ if(!isset($_SESSION)){
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>  
+    <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
 
     <style type="text/css">
       body {
@@ -42,6 +43,9 @@ if(!isset($_SESSION)){
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">Registro Nacional de Personas</a>
+
+          <?php include('includes/paginas/pag_listar.php'); ?>
+
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -100,6 +104,9 @@ if(!isset($_SESSION)){
           </button>
           <a class="navbar-brand" href="#">Registro Nacional de Personas</a>
         </div>
+
+        <?php include('includes/paginas/pag_listar.php'); ?>
+
         <div id="navbar" class="navbar-collapse collapse">
          
 
@@ -300,18 +307,36 @@ if(!isset($_SESSION)){
 
             </div>
 
-
             </div>
 
           </div>
         </div>
 
-    </div>
+
+      <h3 id="seleccionado">Seleccionado: </h3>
+
+      <script src="jquery-ui/external/jquery/jquery.js"></script>
+      <script src="jquery-ui/jquery-ui.js"></script>
+
+      <script>
+            $(function () {
+                $("#apellido").autocomplete({
+                    source: "includes/modulos/listar.php",
+                    minLength: 3,
+                    select: function (event, ui) {
+                        $("#seleccionado").text("Seleccionado: "+ui.item.label);
+                    }
+                });
+            });
+        </script>
+
+
+    </div><!--Fin del row-->
   </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>
