@@ -1,43 +1,22 @@
 <?php
 
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=registros','root','udc');
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, TRUE);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->exec("SET NAMES UTF8");
-    
+$mysql_server = 'localhost';
+$mysql_login = 'root';
+$mysql_password = 'udc';
+$mysql_database = 'employees';
 
-$apellido = isset($_GET['term']) ? $_GET['term'] : null;
-//falta validar, etc. etc.
+mysql_connect($mysql_server, $mysql_login, $mysql_password);
+mysql_select_db($mysql_database);
 
-if(!$apellido)
+$req = "SELECT name "
+    ."FROM mytable "
+    ."WHERE name LIKE '%".$_REQUEST['term']."%' "; 
+
+$query = mysql_query($req);
+
+while($row = mysql_fetch_array($query))
 {
-    http_response_code(400);
-    die();
+    $results[] = array('label' => $row['name']);
 }
 
-$apellido = strtoupper($apellido);
-
-$sql =""
-        . "select id, "
-        . "concat_ws(' ', nombre, apellido) as label, "
-        . "concat_ws(' ', nombre, apellido) as value "
-        . "from usuarios where upper(apellido) like :apellido limit 10";
-$stmt = $pdo->prepare($sql);
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-$stmt->bindParam(':apellido', $apellido);
-$stmt->execute();
-
-$results = $stmt->fetchAll();
-
-
-//COMIENZA EL WEB SERVICE
-header('Content-Type: application/json; charset=UTF-8');
-
-echo json_encode($results, true);
-
-} catch (PDOException $e) {
-	 
-    die('Error de conexion: ' . $e->getMessage());
-}
+echo json_encode($results);

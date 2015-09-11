@@ -22,7 +22,7 @@ $sql =""
         . "select id, "
         . "concat_ws(' ', nombre, apellido) as label, "
         . "concat_ws(' ', nombre, apellido) as value "
-        . "from usuarios where upper(apellido) like :apellido limit 10";
+        . "from registros.usuarios where upper(apellido) like :apellido limit 10";
 $stmt = $pdo->prepare($sql);
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
