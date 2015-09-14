@@ -158,21 +158,21 @@ if(!isset($_SESSION)){
               <div class="form-group">
                 <label for="apellido" class="col-lg-2 control-label">Apellido/s</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="apellido" pattern="[A-Za-z]{4-16}" name="apellido" placeholder="Apellido/s"  required>
+                  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s"  required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="nombre" class="col-lg-2 control-label">Nombre/s</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="nombre" pattern="[A-Za-z]{4-16}" name="nombre" placeholder="Nombre/s"  required>
+                  <input type="text" class="form-control" id="nombre"  name="nombre" placeholder="Nombre/s"  required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="dni" class="col-lg-2 control-label">D.N.I</label>
                 <div class="col-lg-10">
-                  <input type="numeric" class="form-control" id="dni" pattern="[0-9]{1,5}" name="dni" placeholder="D.N.I" required>
+                  <input type="numeric" class="form-control" id="dni"  name="dni" placeholder="D.N.I" required>
                 </div>
               </div>
 
@@ -314,6 +314,8 @@ if(!isset($_SESSION)){
 
 
       <h3 id="seleccionado">Seleccionado: </h3>
+
+      <?php require("listado.php"); ?>
 
       <script src="jquery-ui/external/jquery/jquery.js"></script>
       <script src="jquery-ui/jquery-ui.js"></script>
