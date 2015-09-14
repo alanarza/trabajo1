@@ -21,7 +21,7 @@ if(!isset($_SESSION)){
 
     <style type="text/css">
       body {
-        min-height: 2000px;
+        min-height: 250px;
         padding-top: 70px;
       }
     </style>
@@ -132,11 +132,12 @@ if(!isset($_SESSION)){
   <div class="container">
     <div class="row">
      
+      <?php if (!isset($_SESSION['id'])): ?>
       <div class="jumbotron">
         <h1>Bienvenido!</h1>
         <p>Bienvenido al sistema de registro nacional de identidad de personas.</p>
-        <p><a class="btn btn-primary btn-lg">Ver registros</a></p>
       </div>
+      <?php endif; ?>
     
       <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
@@ -332,13 +333,13 @@ if(!isset($_SESSION)){
             });
         </script>
 
-
+    
+ 
     </div><!--Fin del row-->
   </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+   
+ 
     <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>

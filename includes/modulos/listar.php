@@ -16,7 +16,7 @@ if(!$apellido)
     die();
 }
 
-$apellido = strtoupper($apellido);
+$apellido = strtoupper("%$apellido%");
 
 $sql =""
         . "select id, "
