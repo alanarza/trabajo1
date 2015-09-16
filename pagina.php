@@ -313,8 +313,22 @@ if(!isset($_SESSION)){
           </div>
         </div>
 
+      <div class="container">
+      <div class="row">
 
-      <h3 id="seleccionado">Seleccionado: </h3>
+        <label for="seleccionado" class="col-md-2 " style="font-size: 25px">Seleccionado:</label>
+        <div class="col-lg-10">
+          <a href="#" id="seleccionado" style="font-size: 25px" ><?php echo $_SESSION['seleccion'];?></a>
+
+          
+          
+        </div>
+
+      </div>
+      </div>
+
+      <br>
+      <br>
 
       <?php require("listado.php"); ?>
 
@@ -327,7 +341,8 @@ if(!isset($_SESSION)){
                     source: "includes/modulos/listar.php",
                     minLength: 3,
                     select: function (event, ui) {
-                        $("#seleccionado").text("Seleccionado: "+ui.item.label);
+                        $("#seleccionado").text(ui.item.label);
+                        $_SESSION['seleccion'] = $("#seleccionado");
                     }
                 });
             });
